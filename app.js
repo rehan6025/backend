@@ -1,17 +1,7 @@
-const EventEmitter = require('events')
-
-const customEmitter = new EventEmitter()
-
-customEmitter.on('res', ()=>{
-    console.log(`data received`);
-    
-})
-
-customEmitter.on('res', ()=>{
-    console.log(`some other logic here`);
-})
-
-customEmitter.emit('res')
+const {writeFileSync} = require('fs')
+for(let i = 0; i<10000 ;i++){
+    writeFileSync('./content/big.txt' , `hello world ${i}\n` , {flag : 'a'})
+}
 
 
 
