@@ -13,6 +13,10 @@ app.use(helmet())
 app.use(cookieParser())
 app.use(express.json()) 
 
+//setting routers
+const authRouter = require('./routers/authRouter')
+
+
 
 const connectDb= async()=>{
     try {
@@ -28,6 +32,7 @@ const connectDb= async()=>{
 connectDb();
 
 
+app.use('/api/auth',authRouter);
 
 app.get('/', (req,res) => {
     res.json({message:"Hello from the server"})
